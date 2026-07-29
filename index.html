@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM | Карточка лида</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="toast" class="toast"></div>
+
+    <div class="container">
+        <header>
+            <h1>CRM</h1>
+            <p class="subtitle">
+                Добавление нового лида
+            </p>
+
+        </header>
+
+        <section class="form-section">
+            <form id="leadForm">
+                <div class="form-group">
+                    <label for="name">
+                        Имя клиента
+                        <span class="required">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Например: Иван Иванов"
+                        autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">
+                        Телефон
+                        <span class="required">*</span>
+                    </label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="+7 (___) ___-__-__"
+                        autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <label for="source">
+                        Источник лида
+                    </label>
+                    <select id="source">
+                        <option value="Холодный">
+                            Холодный
+                        </option>
+                        <option value="Тёплый">
+                            Тёплый
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="owner">
+                        Ответственный
+                    </label>
+                    <select id="owner">
+                        <option value="Лидоруб">
+                            Лидоруб
+                        </option>
+                        <option value="МОП">
+                            МОП
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="stage">
+                        Этап сделки
+                    </label>
+                    <select id="stage">
+                        <option value="Новый лид">
+                            Новый лид
+                        </option>
+                        <option value="Квалифицирован">
+                            Квалифицирован
+                        </option>
+                        <option value="Назначена консультация">
+                            Назначена консультация
+                        </option>
+                        <option value="Отказ">
+                            Отказ
+                        </option>
+                    </select>
+                </div>
+
+                <div class="checkbox-group">
+                    <input
+                        type="checkbox"
+                        id="tzRequested">
+                    <label for="tzRequested">
+                        Запрошено техническое задание
+                    </label>
+                </div>
+
+
+                <div id="errorMessage" class="error-message"></div>
+
+                <button
+                    type="submit"
+                    id="saveBtn">
+                    Сохранить лид
+                </button>
+            </form>
+        </section>
+
+
+        <section class="leads-section">
+            <div class="section-header">
+                <h2>
+                    Сохранённые лиды
+                </h2>
+                <span id="leadCounter" class="counter">
+                    0
+                </span>
+            </div>
+
+
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon">  📋
+                </div>
+                <h3>
+                    Пока нет сохранённых лидов
+                </h3>
+                <p>
+                    Заполните форму выше и нажмите
+                    «Сохранить лид».
+                </p>
+            </div>
+
+            <!-- Карточки -->
+
+            <div id="leadsContainer" class="leads-grid">
+
+                <!--
+                    Здесь JavaScript будет создавать карточки лидов
+                -->
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <template id="leadTemplate">
+        <article class="lead-card">
+            <div class="lead-header">
+                <div>
+                    <h3 class="lead-name"></h3>
+                    <p class="lead-phone"></p>
+                </div>
+                <span class="lead-stage"></span>
+            </div>
+
+            <div class="lead-info">
+                <div class="info-row">
+                    <span class="label">
+                        Источник
+                    </span>
+                    <span class="lead-source"></span>
+                </div>
+
+                <div class="info-row">
+                    <span class="label">
+                        Ответственный
+                    </span>
+                    <span class="lead-owner"></span>
+                </div>
+
+                <div class="info-row">
+                    <span class="label">
+                        ТЗ
+                    </span>
+                    <span class="lead-tz"></span>
+                </div>
+
+                <div class="info-row">
+                    <span class="label">
+                        Создан
+                    </span>
+                    <span class="lead-created"></span>
+                </div>
+            </div>
+
+            <div class="lead-actions">
+                <button class="change-stage-btn">
+                    Следующий этап
+                </button>
+            </div>
+        </article>
+    </template>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

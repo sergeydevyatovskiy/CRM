@@ -1,0 +1,506 @@
+/* ==========================================================
+   Общие настройки
+========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+
+    --success: #16a34a;
+    --danger: #dc2626;
+
+    --background: #f4f7fb;
+
+    --card: #ffffff;
+
+    --border: #d8e0ea;
+
+    --text: #1f2937;
+    --text-light: #6b7280;
+
+    --shadow:
+        0 8px 25px rgba(0, 0, 0, .08);
+
+    --radius: 14px;
+
+}
+
+body {
+
+    font-family: "Inter", sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    min-height: 100vh;
+
+    padding: 40px;
+
+}
+
+/* ==========================================================
+   Контейнер
+========================================================== */
+
+.container {
+
+    width: 100%;
+    max-width: 1100px;
+
+    margin: auto;
+
+}
+
+/* ==========================================================
+   Заголовок
+========================================================== */
+
+header {
+
+    margin-bottom: 35px;
+
+}
+
+header h1 {
+
+    font-size: 34px;
+
+    font-weight: 700;
+
+    margin-bottom: 6px;
+
+}
+
+.subtitle {
+
+    color: var(--text-light);
+
+    font-size: 15px;
+
+}
+
+/* ==========================================================
+   Форма
+========================================================== */
+
+.form-section {
+
+    background: var(--card);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    padding: 30px;
+
+    margin-bottom: 35px;
+
+}
+
+#leadForm {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+
+}
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.form-group label {
+
+    margin-bottom: 8px;
+
+    font-weight: 600;
+
+}
+
+.required {
+
+    color: var(--danger);
+
+}
+
+input,
+select {
+
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    transition: .25s;
+
+    background: white;
+
+}
+
+input:focus,
+select:focus {
+
+    outline: none;
+
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .12);
+
+}
+
+/* ==========================================================
+   Checkbox
+========================================================== */
+
+.checkbox-group {
+
+    grid-column: span 2;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+.checkbox-group input {
+
+    width: 18px;
+
+    height: 18px;
+
+}
+
+.checkbox-group label {
+
+    font-weight: 500;
+
+}
+
+/* ==========================================================
+   Ошибка
+========================================================== */
+
+.error-message {
+
+    grid-column: span 2;
+
+    color: var(--danger);
+
+    font-weight: 600;
+
+    min-height: 22px;
+
+}
+
+/* ==========================================================
+   Кнопка
+========================================================== */
+
+button {
+
+    cursor: pointer;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: .25s;
+
+}
+
+#saveBtn {
+
+    grid-column: span 2;
+
+    padding: 15px;
+
+    background: var(--primary);
+
+    color: white;
+
+}
+
+#saveBtn:hover {
+
+    background: var(--primary-hover);
+
+    transform: translateY(-2px);
+
+}
+
+#saveBtn:active {
+
+    transform: scale(.98);
+
+}
+
+/* ==========================================================
+   Заголовок списка
+========================================================== */
+
+.section-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+}
+
+.section-header h2 {
+
+    font-size: 26px;
+
+}
+
+.counter {
+
+    background: var(--primary);
+
+    color: white;
+
+    width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    font-weight: 700;
+
+}
+
+/* ==========================================================
+   Пустое состояние
+========================================================== */
+
+.empty-state {
+
+    background: white;
+
+    border-radius: var(--radius);
+
+    padding: 60px;
+
+    text-align: center;
+
+    box-shadow: var(--shadow);
+
+}
+
+.empty-icon {
+
+    font-size: 60px;
+
+    margin-bottom: 20px;
+
+}
+
+.empty-state h3 {
+
+    margin-bottom: 10px;
+
+}
+
+.empty-state p {
+
+    color: var(--text-light);
+
+}
+
+
+.leads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+}
+
+.lead-card {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 22px;
+    animation: fadeIn .35s ease;
+    transition: .25s;
+}
+
+.lead-card:hover {
+    transform: translateY(-4px);
+}
+
+.lead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 18px;
+}
+
+.lead-name {
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+
+.lead-phone {
+    color: var(--text-light);
+}
+
+.lead-stage {
+    background: #dbeafe;
+    color: #1d4ed8;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.lead-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.label {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+
+.lead-actions {
+    margin-top: 15px;
+}
+
+.change-stage-btn {
+    width: 100%;
+    background: white;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    padding: 12px;
+}
+
+.change-stage-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+
+.toast {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background: var(--success);
+    color: white;
+    padding: 15px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: .3s;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media (max-width: 850px) {
+
+    body {
+        padding: 20px;
+    }
+
+    #leadForm {
+        grid-template-columns: 1fr;
+    }
+
+    .checkbox-group,
+    #saveBtn,
+    .error-message {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .leads-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .lead-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .toast {
+        left: 20px;
+        right: 20px;
+        top: 20px;
+    }
+}
